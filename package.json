@@ -1,10 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Topic :  Microfinance Loan Management System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,13 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishwari-0522/WPL_A2_MINIPROJECT_30_34.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ishwari-0522/WPL_A2_MINIPROJECT_30_34/issues"
+  },
+  "homepage": "https://github.com/ishwari-0522/WPL_A2_MINIPROJECT_30_34#readme"
 }

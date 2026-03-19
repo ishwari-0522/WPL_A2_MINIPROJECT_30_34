@@ -429,6 +429,7 @@ th:nth-child(5), td:nth-child(5){width:140px;}
 th:nth-child(6), td:nth-child(6){width:120px; text-align:right;}
 tr.dr{cursor:pointer;transition:background .15s}
 tr.dr:hover td{background:rgba(0,212,255,.03)}
+/* CENTER ALIGN — Recent Transactions only */
 
 #pp-home table th:not(:first-child),
 #pp-home table td:not(:first-child){
@@ -920,6 +921,151 @@ function openLoanModal(){ document.getElementById('loanModal').classList.add('op
 function closeLoanModal(){ document.getElementById('loanModal').classList.remove('open'); }
 function submitLoan(){ alert('Application submitted! You will be notified within 2–3 business days.'); closeLoanModal(); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLoanModal(); });
+
+
+const API = "http://localhost:5000/api";
+
+let token = localStorage.getItem("token");
+
+
+// ---------------- LOGIN ----------------
+
+async function login(email, password) {
+
+  const res = await fetch(API + "/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await res.json();
+
+  if (data.token) {
+
+    localStorage.setItem("token", data.token);
+    token = data.token;
+
+    alert("Login success");
+
+    loadAllTables();
+
+  } else {
+
+    alert(data.message);
+
+  }
+
+}
+
+
+// ---------------- LOAD EVERYTHING ----------------
+
+async function loadAllTables() {
+
+  if (!token) return;
+
+  const res = await fetch(API + "/admin/loans", {
+    headers: {
+      Authorization: "Bearer " + token
+    }
+  });
+
+  const data = await res.json();
+
+  fillTables(data);
+
+}
+
+
+// ---------------- FILL TABLES AUTOMATIC ----------------
+
+function fillTables(loans) {
+
+  const tables = document.querySelectorAll("table tbody");
+
+  tables.forEach((tbody) => {
+
+    tbody.innerHTML = "";
+
+    loans.slice(0,6).forEach(l => {
+
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${l.name || "-"}</td>
+        <td>₹${l.amount || "-"}</td>
+        <td>${l.status || "-"}</td>
+        <td>${l.duration_months || "-"}</td>
+        <td><button class="rb">View</button></td>
+      `;
+
+      tbody.appendChild(row);
+
+    });
+
+  });
+
+}
+
+
+// ---------------- APPLY LOAN ----------------
+
+async function applyLoan(amount, purpose, duration) {
+
+  const res = await fetch(API + "/loan/apply", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token
+    },
+    body: JSON.stringify({
+      amount,
+      purpose,
+      duration_months: duration
+    })
+  });
+
+  const data = await res.json();
+
+  alert(data.message);
+
+}
+
+
+// ---------------- REPAY ----------------
+
+async function payLoan(id, amount) {
+
+  const res = await fetch(API + "/repayment/pay", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token
+    },
+    body: JSON.stringify({
+      loan_id: id,
+      amount_paid: amount,
+      payment_date: new Date()
+    })
+  });
+
+  const data = await res.json();
+
+  alert(data.message);
+
+}
+
+
+// AUTO LOAD
+
+if (token) {
+
+  loadAllTables();
+
+}
+
 </script>
 </body>
 </html>
