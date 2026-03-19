@@ -127,12 +127,21 @@ select.fc{cursor:pointer}
 
 
 .hero{
-  flex:1;display:flex;flex-direction:column;
-  align-items:center;text-align:center;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
   padding:44px 20px 0;
-  position:relative;z-index:1;
+  position:relative;
+  z-index:1;
   overflow:visible;
+
+  width:100%;
+  max-width:1400px;
+  margin:0 auto;
 }
+
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:10px;letter-spacing:2.5px;
@@ -381,7 +390,13 @@ select.fc{cursor:pointer}
 .vcol{display:flex;flex-direction:column;gap:16px}
 
 
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;animation:cardIn .5s .2s ease both;transition:border-color .2s}
+.card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
+  width:100%;
+}
 .card:hover{border-color:rgba(255,255,255,.1)}
 .c-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border)}
 .c-title{font-family:var(--font-brand);font-size:14px;font-weight:600;flex:1;letter-spacing:.5px;text-transform:uppercase}
@@ -394,12 +409,51 @@ select.fc{cursor:pointer}
 .tab.on{background:var(--surface2);color:var(--text);box-shadow:0 1px 6px rgba(0,0,0,.3)}
 
 
-table{width:100%;border-collapse:collapse}
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
 th{padding:10px 20px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:var(--font-mono);text-align:left;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border)}
 td{padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.03);vertical-align:middle;font-size:13px;font-family:var(--font-body)}
-tr:last-child td{border-bottom:none}
+
+th, td{
+  white-space:nowrap;
+}
+
+th:nth-child(1), td:nth-child(1){width:260px;}
+th:nth-child(2), td:nth-child(2){width:120px;}
+th:nth-child(3), td:nth-child(3){width:140px;}
+th:nth-child(4), td:nth-child(4){width:120px;}
+th:nth-child(5), td:nth-child(5){width:140px;}
+th:nth-child(6), td:nth-child(6){width:120px; text-align:right;}
 tr.dr{cursor:pointer;transition:background .15s}
 tr.dr:hover td{background:rgba(0,212,255,.03)}
+
+#pp-home table th:not(:first-child),
+#pp-home table td:not(:first-child){
+  text-align:center;
+}
+
+#pp-home table td{
+  vertical-align:middle;
+}
+
+#pp-home .bar-w{
+  margin:auto;
+}
+
+#pp-home .stat{
+  display:inline-flex;
+  margin:auto;
+}
+
+#pp-home .rb{
+  display:inline-block;
+  margin:auto;
+  float:none;
+}
+
 .bor{display:flex;align-items:center;gap:10px}
 .av{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;font-family:var(--font-brand)}
 .bn{font-size:13px;font-weight:600;color:var(--text);font-family:var(--font-body)}
@@ -411,12 +465,26 @@ tr.dr:hover td{background:rgba(0,212,255,.03)}
 .stat.overdue{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,77,106,.2)}.stat.overdue::before{background:var(--red)}
 .stat.pending{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(255,181,71,.2)}.stat.pending::before{background:var(--amber)}
 .stat.closed{background:rgba(255,255,255,.05);color:var(--text3);border:1px solid var(--border)}.stat.closed::before{background:var(--text3)}
-.bar-w{width:88px}
+.bar-w{
+  width:100px;
+}
 .bar-p{font-size:10px;color:var(--text3);font-family:var(--font-mono);margin-bottom:4px}
 .bar-tr{height:4px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
 .bar-fi{height:100%;border-radius:99px}
 .bar-fi.g{background:linear-gradient(90deg,var(--green),#00ffb3)}.bar-fi.r{background:linear-gradient(90deg,var(--red),#ff8fa3)}.bar-fi.c{background:var(--grad1)}
-.rb{padding:5px 13px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:none;color:var(--text2);font-family:var(--font-body);transition:all .15s}
+.rb{
+  padding:5px 13px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:600;
+  cursor:pointer;
+  border:1px solid var(--border);
+  background:none;
+  color:var(--text2);
+  font-family:var(--font-body);
+  transition:all .15s;
+  float:right;
+}
 .rb:hover{background:var(--cyan-dim);border-color:rgba(0,212,255,.3);color:var(--cyan)}
 
 
@@ -608,7 +676,7 @@ select.fc{cursor:pointer}
     </div>
 
     
-    <div class="home-bottom" style="grid-template-columns:1fr">
+    <div class="home-bottom" style="grid-template-columns:1fr;max-width:1200px;margin:0 auto;width:100%">
       <div class="card">
         <div class="c-head">
           <span class="c-title">Recent Transactions</span>
