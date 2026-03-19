@@ -12,7 +12,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  /* === EXACT LENDX COLORS FROM IMAGE === */
+ 
   --bg:#080c14;
   --bg2:#0d1220;
   --surface:rgba(255,255,255,0.04);
@@ -33,7 +33,7 @@
   --grad1:linear-gradient(135deg,#00d4ff,#0066ff);
   --r:14px;
   --r-sm:8px;
-  /* NEW FONTS */
+ 
   --font-brand:'Exo 2',sans-serif;
   --font-body:'Space Grotesk',sans-serif;
   --font-mono:'JetBrains Mono',monospace;
@@ -42,10 +42,10 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.5}
 
-/* GRAIN */
+
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:9999}
 
-/* AMBIENT */
+
 .amb{position:fixed;pointer-events:none;z-index:0;border-radius:50%;filter:blur(120px);opacity:.15}
 .amb1{width:600px;height:600px;background:#00d4ff;top:-200px;left:80px;animation:d1 20s ease-in-out infinite}
 .amb2{width:500px;height:500px;background:#0044ff;bottom:-100px;right:200px;animation:d2 25s ease-in-out infinite}
@@ -54,12 +54,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 @keyframes d2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,30px)}}
 @keyframes d3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-30px) scale(1.2)}}
 
-/* ══════════════════════════════════════════
-   HOMEPAGE
-══════════════════════════════════════════ */
+
 #homepage{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
 
-/* HOME NAV */
+
 .home-nav{
   display:flex;align-items:center;
   padding:0 52px;height:56px;
@@ -92,7 +90,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .home-nav-links{display:flex;align-items:center;gap:0;height:100%;flex:1;justify-content:center}
 .home-nav-right{display:none}
 
-/* LOAN APPLICATION MODAL */
+
 .m-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);align-items:center;justify-content:center}
 .m-overlay.open{display:flex}
 .modal{width:520px;max-height:90vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);box-shadow:0 40px 100px rgba(0,0,0,.6);animation:fadeUp .3s ease}
@@ -127,7 +125,7 @@ select.fc{cursor:pointer}
 .ptab:hover{color:var(--text)}
 .ptab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
 
-/* HERO */
+
 .hero{
   flex:1;display:flex;flex-direction:column;
   align-items:center;text-align:center;
@@ -147,14 +145,14 @@ select.fc{cursor:pointer}
 }
 @keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(255,77,106,.5)}50%{box-shadow:0 0 0 8px rgba(255,77,106,0)}}
 
-/* GIANT HERO TITLE — one line, full width */
+
 .hero-title{
   font-family:var(--font-brand);
   font-size:clamp(40px,9.8vw,148px);
   font-weight:900;
   line-height:1;
   letter-spacing:0.22em;
-  text-indent:0.22em; /* indent by same as letter-spacing to centre properly */
+  text-indent:0.22em; 
   text-transform:uppercase;
   white-space:nowrap;
   width:100%;
@@ -165,7 +163,7 @@ select.fc{cursor:pointer}
   background-clip:text;
   animation:fadeUp .6s .08s ease both;
   box-sizing:border-box;
-  padding:0 0.11em; /* half letter-spacing on each side so E never clips */
+  padding:0 0.11em; 
 }
 .hero-title .line2{display:inline}
 
@@ -199,7 +197,7 @@ select.fc{cursor:pointer}
 .hs-val.c{color:var(--cyan)}.hs-val.g{color:var(--green)}.hs-val.r{color:var(--red)}.hs-val.a{color:var(--amber)}
 .hs-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3)}
 
-/* PORTAL CARDS */
+
 .portals{
   display:grid;grid-template-columns:repeat(3,1fr);
   margin-top:52px;width:100%;
@@ -211,7 +209,7 @@ select.fc{cursor:pointer}
   animation:fadeUp .6s .32s ease both;
 }
 
-/* BOTTOM SECTIONS */
+
 .home-bottom{
   display:grid;
   grid-template-columns:1fr 360px;
@@ -271,13 +269,11 @@ select.fc{cursor:pointer}
 .portal.p-admin .portal-btn{background:var(--green);color:#080c14}
 .portal.p-admin .portal-btn:hover{background:#33ffb8;box-shadow:0 6px 24px rgba(0,229,160,.3)}
 
-/* ══════════════════════════════════════════
-   DASHBOARD OVERLAY
-══════════════════════════════════════════ */
+
 #dashOverlay{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto}
 #dashOverlay.open{display:block;animation:fadeUp .3s ease}
 
-/* DASH TOPBAR */
+
 .topbar{
   position:sticky;top:0;z-index:100;
   background:rgba(8,12,20,0.92);
@@ -286,7 +282,6 @@ select.fc{cursor:pointer}
 }
 .topbar-upper{display:flex;align-items:center;gap:16px;padding:0 28px;height:56px}
 
-/* LOANBRIDGE in topbar — smaller but same distinct font */
 .dash-brand{
   font-family:var(--font-brand);
   font-size:20px;font-weight:900;
@@ -351,7 +346,7 @@ select.fc{cursor:pointer}
 .close-dash-btn{width:32px;height:32px;border-radius:var(--r-sm);border:1px solid var(--border);background:none;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s}
 .close-dash-btn:hover{background:var(--red-dim);color:var(--red);border-color:rgba(255,77,106,.3)}
 
-/* CONTENT */
+
 .content{padding:28px 32px;position:relative;z-index:1}
 .dpage{display:none;animation:fadeUp .35s ease both}
 .dpage.on{display:block}
@@ -364,7 +359,7 @@ select.fc{cursor:pointer}
 .see-all{font-size:12px;color:var(--cyan);cursor:pointer;font-weight:500;font-family:var(--font-body)}
 .see-all:hover{opacity:.8}
 
-/* KPI */
+
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
 .kpi{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;animation:cardIn .5s ease both;cursor:default}
 .kpi:nth-child(1){animation-delay:0s}.kpi:nth-child(2){animation-delay:.07s}.kpi:nth-child(3){animation-delay:.14s}.kpi:nth-child(4){animation-delay:.21s}
@@ -381,11 +376,11 @@ select.fc{cursor:pointer}
 .kpi-dl.up{background:var(--green-dim);color:var(--green)}.kpi-dl.dn{background:var(--red-dim);color:var(--red)}.kpi-dl.ne{background:rgba(255,255,255,.05);color:var(--text2)}
 @keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-/* LAYOUT */
+
 .g2{display:grid;grid-template-columns:1fr 350px;gap:20px;margin-bottom:20px}
 .vcol{display:flex;flex-direction:column;gap:16px}
 
-/* CARD */
+
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;animation:cardIn .5s .2s ease both;transition:border-color .2s}
 .card:hover{border-color:rgba(255,255,255,.1)}
 .c-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border)}
@@ -394,12 +389,11 @@ select.fc{cursor:pointer}
 .c-badge.cyan{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
 .c-badge.red{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,77,106,.2)}
 
-/* TABS */
 .tabs{display:flex;gap:2px;background:rgba(255,255,255,.03);border-radius:7px;padding:3px}
 .tab{padding:5px 13px;border-radius:5px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--text2);border:none;background:none;font-family:var(--font-body)}
 .tab.on{background:var(--surface2);color:var(--text);box-shadow:0 1px 6px rgba(0,0,0,.3)}
 
-/* TABLE */
+
 table{width:100%;border-collapse:collapse}
 th{padding:10px 20px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:var(--font-mono);text-align:left;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border)}
 td{padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.03);vertical-align:middle;font-size:13px;font-family:var(--font-body)}
@@ -425,7 +419,7 @@ tr.dr:hover td{background:rgba(0,212,255,.03)}
 .rb{padding:5px 13px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:none;color:var(--text2);font-family:var(--font-body);transition:all .15s}
 .rb:hover{background:var(--cyan-dim);border-color:rgba(0,212,255,.3);color:var(--cyan)}
 
-/* METRIC */
+
 .metric{background:linear-gradient(145deg,#0d1a2d,var(--bg2));border:1px solid rgba(0,212,255,.15);border-radius:var(--r);padding:22px;position:relative;overflow:hidden;animation:cardIn .5s .3s ease both}
 .metric::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.1) 0%,transparent 70%)}
 .metric::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.5),transparent)}
@@ -439,7 +433,7 @@ tr.dr:hover td{background:rgba(0,212,255,.03)}
 .met-k{font-size:11.5px;color:var(--text3);font-family:var(--font-body)}
 .met-v{font-size:12px;font-weight:600;font-family:var(--font-mono);color:var(--text)}
 
-/* FEED */
+
 .feed-i{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.03);cursor:pointer;transition:background .15s}
 .feed-i:last-child{border-bottom:none}
 .feed-i:hover{background:rgba(0,212,255,.03)}
@@ -451,7 +445,7 @@ tr.dr:hover td{background:rgba(0,212,255,.03)}
 .feed-a{font-family:var(--font-mono);font-size:13px;font-weight:600}
 .feed-a.pos{color:var(--green)}.feed-a.neg{color:var(--red)}.feed-a.pend{color:var(--amber)}
 
-/* DONUT */
+
 .don-wrap{position:relative;width:118px;height:118px;margin:0 auto 14px}
 .don-svg{transform:rotate(-90deg)}
 .don-bg{fill:none;stroke:rgba(255,255,255,.05);stroke-width:12}
@@ -465,7 +459,7 @@ tr.dr:hover td{background:rgba(0,212,255,.03)}
 .leg-k{flex:1;color:var(--text2);font-family:var(--font-body)}
 .leg-v{font-family:var(--font-mono);font-weight:600;color:var(--text)}
 
-/* MODAL */
+
 .m-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);align-items:center;justify-content:center}
 .m-overlay.open{display:flex}
 .modal{width:520px;max-height:90vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);box-shadow:0 40px 100px rgba(0,0,0,.6);animation:fadeUp .3s ease}
@@ -493,7 +487,7 @@ select.fc{cursor:pointer}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:99px}
 
-/* PAGE TABS BAR */
+
 .page-tabs-bar{
   display:flex;align-items:center;gap:0;
   background:rgba(8,12,20,0.95);
@@ -518,11 +512,11 @@ select.fc{cursor:pointer}
 .ptab-badge.red{background:rgba(255,77,106,.18);color:#ff8fa3}
 .ptab-badge.amber{background:rgba(255,181,71,.18);color:var(--amber)}
 
-/* PAGE SECTIONS */
+
 .ppage{display:none}
 .ppage.active{display:block}
 
-/* INNER PAGES LAYOUT */
+
 .ppage-inner{padding:32px 32px 52px;max-width:1400px;margin:0 auto}
 .ppage-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px}
 .ppage-ey{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);font-family:var(--font-mono);margin-bottom:5px}
@@ -535,9 +529,9 @@ select.fc{cursor:pointer}
 <div class="amb amb1"></div>
 <div class="amb amb2"></div>
 
-<!-- ══ HOMEPAGE ══ -->
+
 <div id="homepage">
-  <!-- SINGLE UNIFIED NAV -->
+  
   <nav class="home-nav">
     <a class="home-brand" href="#">
       <div class="home-brand-dot"></div>
@@ -557,9 +551,9 @@ select.fc{cursor:pointer}
     </div>
   </nav>
 
-  <!-- ── HOME PAGE ── -->
+  <!-- HOME PAGE  -->
   <div class="ppage active" id="pp-home">
-  <!-- HERO -->
+
   <div class="hero">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-dot"></div>
@@ -569,7 +563,7 @@ select.fc{cursor:pointer}
     <h1 class="hero-title">LOAN<span class="line2">BRIDGE</span></h1>
 
     <p class="hero-desc">
-      A unified platform connecting borrowers with microfinance institutions — track loans, manage repayments, and oversee your entire portfolio in real time.
+      A unified platform connecting borrowers with microfinance institutions. It can track loans, manage repayments, and oversee your entire portfolio in real time.
     </p>
 
     <div class="hero-stats">
@@ -591,7 +585,7 @@ select.fc{cursor:pointer}
       </div>
     </div>
 
-    <!-- PORTAL CARDS -->
+   
     <div class="portals">
       <div class="portal p-borrower">
         <div class="portal-ico">🪙</div>
@@ -613,7 +607,7 @@ select.fc{cursor:pointer}
       </div>
     </div>
 
-    <!-- BOTTOM: Recent Transactions full width -->
+    
     <div class="home-bottom" style="grid-template-columns:1fr">
       <div class="card">
         <div class="c-head">
@@ -650,10 +644,10 @@ select.fc{cursor:pointer}
         <button class="btn-new">+ New Loan</button>
       </div>
       <div class="kpi-grid" style="margin-bottom:22px">
-        <div class="kpi c"><div class="kpi-ico">💼</div><div class="kpi-val">₹84.2L</div><div class="kpi-lbl">Total Portfolio</div><span class="kpi-dl up">↑ 12.4% QoQ</span></div>
-        <div class="kpi g"><div class="kpi-ico">✓</div><div class="kpi-val">118</div><div class="kpi-lbl">Active Loans</div><span class="kpi-dl up">↑ 48 this month</span></div>
-        <div class="kpi r"><div class="kpi-ico">⚠</div><div class="kpi-val">12</div><div class="kpi-lbl">Overdue</div><span class="kpi-dl dn">↓ 3 from last</span></div>
-        <div class="kpi a"><div class="kpi-ico">✕</div><div class="kpi-val">12</div><div class="kpi-lbl">Closed</div><span class="kpi-dl ne">Feb–Mar 2026</span></div>
+        <div class="kpi c"><div class="kpi-ico"> </div><div class="kpi-val">₹84.2L</div><div class="kpi-lbl">Total Portfolio</div><span class="kpi-dl up">↑ 12.4% QoQ</span></div>
+        <div class="kpi g"><div class="kpi-ico"> </div><div class="kpi-val">118</div><div class="kpi-lbl">Active Loans</div><span class="kpi-dl up">↑ 48 this month</span></div>
+        <div class="kpi r"><div class="kpi-ico"> </div><div class="kpi-val">12</div><div class="kpi-lbl">Overdue</div><span class="kpi-dl dn">↓ 3 from last</span></div>
+        <div class="kpi a"><div class="kpi-ico"> </div><div class="kpi-val">12</div><div class="kpi-lbl">Closed</div><span class="kpi-dl ne">Feb–Mar 2026</span></div>
       </div>
       <div class="card">
         <div class="c-head"><span class="c-title">Loan Directory</span><div class="tabs"><button class="tab on" onclick="tab(this)">All (142)</button><button class="tab" onclick="tab(this)">Active (118)</button><button class="tab" onclick="tab(this)">Overdue (12)</button><button class="tab" onclick="tab(this)">Closed (12)</button></div></div>
@@ -672,7 +666,7 @@ select.fc{cursor:pointer}
     </div>
   </div>
 
-  <!-- APPLICATIONS PAGE -->
+ 
   <div class="ppage" id="pp-applications">
     <div class="ppage-inner">
       <div class="ppage-head">
@@ -680,10 +674,10 @@ select.fc{cursor:pointer}
         <button class="btn-new">+ New Application</button>
       </div>
       <div class="kpi-grid" style="margin-bottom:22px">
-        <div class="kpi a"><div class="kpi-ico">⏳</div><div class="kpi-val">8</div><div class="kpi-lbl">Pending Review</div><span class="kpi-dl ne">Avg. 2.3 days</span></div>
-        <div class="kpi g"><div class="kpi-ico">✓</div><div class="kpi-val">2</div><div class="kpi-lbl">Approved</div><span class="kpi-dl up">Ready to disburse</span></div>
-        <div class="kpi r"><div class="kpi-ico">✕</div><div class="kpi-val">1</div><div class="kpi-lbl">Rejected</div><span class="kpi-dl dn">Low credit score</span></div>
-        <div class="kpi c"><div class="kpi-ico">₹</div><div class="kpi-val">₹9.5L</div><div class="kpi-lbl">Pipeline Value</div><span class="kpi-dl up">This week</span></div>
+        <div class="kpi a"><div class="kpi-ico"> </div><div class="kpi-val">8</div><div class="kpi-lbl">Pending Review</div><span class="kpi-dl ne">Avg. 2.3 days</span></div>
+        <div class="kpi g"><div class="kpi-ico"> </div><div class="kpi-val">2</div><div class="kpi-lbl">Approved</div><span class="kpi-dl up">Ready to disburse</span></div>
+        <div class="kpi r"><div class="kpi-ico"> </div><div class="kpi-val">1</div><div class="kpi-lbl">Rejected</div><span class="kpi-dl dn">Low credit score</span></div>
+        <div class="kpi c"><div class="kpi-ico"> </div><div class="kpi-val">₹9.5L</div><div class="kpi-lbl">Pipeline Value</div><span class="kpi-dl up">This week</span></div>
       </div>
       <div class="card">
         <div class="c-head"><span class="c-title">Applications</span><span class="c-badge red">8 pending</span></div>
@@ -700,7 +694,7 @@ select.fc{cursor:pointer}
     </div>
   </div>
 
-  <!-- REPAYMENTS PAGE -->
+
   <div class="ppage" id="pp-repayments">
     <div class="ppage-inner">
       <div class="ppage-head">
@@ -708,10 +702,10 @@ select.fc{cursor:pointer}
         <button class="btn-new">Record Payment</button>
       </div>
       <div class="kpi-grid" style="margin-bottom:22px">
-        <div class="kpi g"><div class="kpi-ico">⬆</div><div class="kpi-val">₹3.2L</div><div class="kpi-lbl">Collected (March)</div><span class="kpi-dl up">↑ 6.2% on track</span></div>
-        <div class="kpi c"><div class="kpi-ico">◎</div><div class="kpi-val">₹4.8L</div><div class="kpi-lbl">Due This Week</div><span class="kpi-dl ne">64 borrowers</span></div>
-        <div class="kpi r"><div class="kpi-ico">⚠</div><div class="kpi-val">₹86.4K</div><div class="kpi-lbl">Overdue Amount</div><span class="kpi-dl dn">12 accounts</span></div>
-        <div class="kpi a"><div class="kpi-ico">%</div><div class="kpi-val">94.1%</div><div class="kpi-lbl">On-time Rate</div><span class="kpi-dl up">↑ this month</span></div>
+        <div class="kpi g"><div class="kpi-ico"> </div><div class="kpi-val">₹3.2L</div><div class="kpi-lbl">Collected (March)</div><span class="kpi-dl up">↑ 6.2% on track</span></div>
+        <div class="kpi c"><div class="kpi-ico"> </div><div class="kpi-val">₹4.8L</div><div class="kpi-lbl">Due This Week</div><span class="kpi-dl ne">64 borrowers</span></div>
+        <div class="kpi r"><div class="kpi-ico"> </div><div class="kpi-val">₹86.4K</div><div class="kpi-lbl">Overdue Amount</div><span class="kpi-dl dn">12 accounts</span></div>
+        <div class="kpi a"><div class="kpi-ico"> </div><div class="kpi-val">94.1%</div><div class="kpi-lbl">On-time Rate</div><span class="kpi-dl up">↑ this month</span></div>
       </div>
       <div class="card">
         <div class="c-head"><span class="c-title">Upcoming EMIs</span><div class="tabs"><button class="tab on" onclick="tab(this)">This Week</button><button class="tab" onclick="tab(this)">This Month</button><button class="tab" onclick="tab(this)">Collected</button></div></div>
@@ -728,7 +722,7 @@ select.fc{cursor:pointer}
     </div>
   </div>
 
-  <!-- OVERDUE PAGE -->
+
   <div class="ppage" id="pp-overdue">
     <div class="ppage-inner">
       <div class="ppage-head">
@@ -736,10 +730,10 @@ select.fc{cursor:pointer}
         <button class="btn-new" style="background:var(--red-dim);color:var(--red);border:1px solid rgba(255,77,106,.3);box-shadow:none">Send All Reminders</button>
       </div>
       <div class="kpi-grid" style="margin-bottom:22px">
-        <div class="kpi r"><div class="kpi-ico">⚠</div><div class="kpi-val">12</div><div class="kpi-lbl">Overdue Accounts</div><span class="kpi-dl dn">↓ 3 from last month</span></div>
-        <div class="kpi r"><div class="kpi-ico">₹</div><div class="kpi-val">₹86.4K</div><div class="kpi-lbl">Total Outstanding</div><span class="kpi-dl dn">Needs recovery</span></div>
-        <div class="kpi a"><div class="kpi-ico">📅</div><div class="kpi-val">14</div><div class="kpi-lbl">Avg. Days Overdue</div><span class="kpi-dl ne">Across accounts</span></div>
-        <div class="kpi g"><div class="kpi-ico">✓</div><div class="kpi-val">3</div><div class="kpi-lbl">Resolved This Month</div><span class="kpi-dl up">₹18,000 recovered</span></div>
+        <div class="kpi r"><div class="kpi-ico"> </div><div class="kpi-val">12</div><div class="kpi-lbl">Overdue Accounts</div><span class="kpi-dl dn">↓ 3 from last month</span></div>
+        <div class="kpi r"><div class="kpi-ico"> </div><div class="kpi-val">₹86.4K</div><div class="kpi-lbl">Total Outstanding</div><span class="kpi-dl dn">Needs recovery</span></div>
+        <div class="kpi a"><div class="kpi-ico"> </div><div class="kpi-val">14</div><div class="kpi-lbl">Avg. Days Overdue</div><span class="kpi-dl ne">Across accounts</span></div>
+        <div class="kpi g"><div class="kpi-ico"> </div><div class="kpi-val">3</div><div class="kpi-lbl">Resolved This Month</div><span class="kpi-dl up">₹18,000 recovered</span></div>
       </div>
       <div class="card">
         <div class="c-head"><span class="c-title">Overdue Accounts</span><span class="c-badge red">12 accounts</span></div>
@@ -756,20 +750,22 @@ select.fc{cursor:pointer}
     </div>
   </div>
 
-  <!-- ANALYSIS PAGE -->
+  >
   <div class="ppage" id="pp-analysis">
     <div class="ppage-inner">
       <div class="ppage-head">
         <div><div class="ppage-ey">Insights · March 2026</div><div class="ppage-title">Analysis</div><div class="ppage-sub">Portfolio performance, collection trends & live activity</div></div>
       </div>
       <div class="kpi-grid" style="margin-bottom:22px">
-        <div class="kpi c"><div class="kpi-ico">↑</div><div class="kpi-val">₹24.6L</div><div class="kpi-lbl">Disbursements YTD</div><span class="kpi-dl up">↑ 18% YoY</span></div>
-        <div class="kpi g"><div class="kpi-ico">₹</div><div class="kpi-val">₹4.2L</div><div class="kpi-lbl">Interest Income</div><span class="kpi-dl up">↑ 9.3% YTD</span></div>
-        <div class="kpi a"><div class="kpi-ico">◎</div><div class="kpi-val">97.3%</div><div class="kpi-lbl">Collection Efficiency</div><span class="kpi-dl up">Target: 95%</span></div>
-        <div class="kpi r"><div class="kpi-ico">⊟</div><div class="kpi-val">₹0.8L</div><div class="kpi-lbl">NPA Provisioning</div><span class="kpi-dl ne">0.94% NPA</span></div>
+        <div class="kpi c"><div class="kpi-ico"></div><div class="kpi-val">₹24.6L</div><div class="kpi-lbl">Disbursements YTD</div><span class="kpi-dl up">↑ 18% YoY</span></div>
+        <div class="kpi g"><div class="kpi-ico"></div><div class="kpi-val">₹4.2L</div><div class="kpi-lbl">Interest Income</div><span class="kpi-dl up">↑ 9.3% YTD</span></div>
+        <div class="kpi a"><div class="kpi-ico"></div><div class="kpi-val">97.3%</div><div class="kpi-lbl">Collection Efficiency</div><span class="kpi-dl up">Target: 95%</span></div>
+        <div class="kpi r"><div class="kpi-ico"></div><div class="kpi-val">₹0.8L</div><div class="kpi-lbl">NPA Provisioning</div><span class="kpi-dl ne">0.94% NPA</span></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 360px;gap:20px">
-        <!-- METRIC SUMMARY -->
+        
+        
+
         <div class="card">
           <div class="c-head"><span class="c-title">Portfolio Breakdown</span><span class="c-badge cyan">March 2026</span></div>
           <div style="padding:20px">
@@ -783,7 +779,8 @@ select.fc{cursor:pointer}
             <div class="met-row" style="padding:12px 0"><span class="met-k" style="font-size:13px">March Disbursements</span><span class="met-v" style="color:var(--cyan)">₹3.8L <span style="font-size:10px;color:var(--green)">+18% MoM</span></span></div>
           </div>
         </div>
-        <!-- RECENT ACTIVITY -->
+        
+        
         <div class="card">
           <div class="c-head"><span class="c-title">Recent Activity</span><span class="c-badge cyan">Live</span></div>
           <div class="feed-i"><div class="feed-dot fd-in">⬇</div><div class="feed-b"><div class="feed-t">Loan disbursed to Sunita Kadam</div><div class="feed-m">Today · 11:24 AM</div></div><div class="feed-a pos">+₹1,20,000</div></div>
@@ -799,13 +796,15 @@ select.fc{cursor:pointer}
     </div>
   </div>
 
-</div><!-- /homepage -->
+</div>
 
-<!-- LOAN APPLICATION MODAL -->
+
+
+
 <div class="m-overlay" id="loanModal" onclick="if(event.target===this)closeLoanModal()">
   <div class="modal">
     <div class="m-head">
-      <div class="m-ico">🪙</div>
+      <div class="m-ico"> </div>
       <div class="m-title">Loan Application</div>
       <button class="m-close" onclick="closeLoanModal()">✕</button>
     </div>
