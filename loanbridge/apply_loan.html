@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Apply for a loan · LoanBridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
+    <div class="nav-label">Overview</div>
+    <nav class="nav">
+      <a href="client_dashboard.html"><span class="ico">◐</span><span>Home</span></a>
+      <a class="is-active" href="apply_loan.html"><span class="ico">＋</span><span>Apply for loan</span></a>
+    </nav>
+    <div class="nav-label">My account</div>
+    <nav class="nav">
+      <a href="my_loans.html"><span class="ico">❒</span><span>My loans</span><span class="badge">2</span></a>
+      <a href="client_repayments.html"><span class="ico">₹</span><span>Repayments</span></a>
+      <a href="#"><span class="ico">◫</span><span>Documents</span></a>
+      <a href="#"><span class="ico">◉</span><span>Profile</span></a>
+    </nav>
+    <div class="nav-label">Support</div>
+    <nav class="nav">
+      <a href="#"><span class="ico">?</span><span>Help center</span></a>
+      <a href="logout.php"><span class="ico">↩</span><span>Log out</span></a>
+    </nav>
+    <div class="me"><div class="avatar lilac">PP</div><div class="who">Priya Patil<span class="role">Borrower · Pune</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search..."/></div>
+      <div class="row" style="gap:10px;"><button class="icon-btn">◔<span class="dot-red"></span></button><button class="icon-btn">⚙</button></div>
+    </div>
+
+    <header class="page-head">
+      <div>
+        <div class="crumbs"><span class="dot"></span> NEW APPLICATION · STEP 2 OF 4</div>
+        <h1>APPLY FOR A <em>LOAN.</em></h1>
+        <p class="sub">Micro loans from ₹5,000 up to ₹2,00,000 — approved in as little as 48 hours.</p>
+      </div>
+    </header>
+
+    <section class="grid-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Loan details</h3><div class="sub">Tell us what you need and why.</div></div>
+          <span class="tag">Draft · auto-saved</span>
+        </div>
+
+        <form action="apply_loan.php" method="post">
+          <div class="form-grid">
+            <div class="field">
+              <label>Purpose of loan</label>
+              <select class="select" name="purpose" required>
+                <option>Small shop expansion</option>
+                <option>Agricultural equipment</option>
+                <option>Dairy / livestock</option>
+                <option>Education</option>
+                <option>Medical emergency</option>
+                <option>Home improvement</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Borrower type</label>
+              <select class="select" name="borrower_type">
+                <option>New borrower</option>
+                <option>Repeat borrower</option>
+                <option>Group lending</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Amount — <span style="color:var(--brand-2); font-family:var(--font-mono);" id="amtOut">₹45,000</span></label>
+            <input type="range" id="amt" name="amount" min="5000" max="200000" step="1000" value="45000"/>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>Tenure — <span style="color:var(--brand-2); font-family:var(--font-mono);" id="tenOut">12 months</span></label>
+              <input type="range" id="ten" name="tenure" min="3" max="36" step="1" value="12"/>
+            </div>
+            <div class="field">
+              <label>Interest — <span style="color:var(--brand-2); font-family:var(--font-mono);" id="rateOut">18.5% p.a.</span></label>
+              <input type="range" id="rate" name="rate" min="12" max="28" step="0.5" value="18.5"/>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="form-grid">
+            <div class="field"><label>Monthly household income</label><input class="input" name="income" type="number" placeholder="₹ per month" required/></div>
+            <div class="field"><label>Occupation</label><input class="input" name="occupation" placeholder="Shopkeeper, farmer, teacher..."/></div>
+          </div>
+
+          <div class="field">
+            <label>Why do you need this loan?</label>
+            <textarea class="textarea" name="notes" rows="3" placeholder="Briefly explain how the funds will be used..."></textarea>
+          </div>
+
+          <div class="hr"></div>
+          <div class="field">
+            <label>Upload documents (Aadhaar, income proof, photo)</label>
+            <input class="input" name="docs[]" type="file" multiple/>
+          </div>
+
+          <label class="row" style="gap:10px; font-size:13px; color:var(--text-muted);">
+            <input type="checkbox" required/> I confirm the information above is true and agree to the <a href="#" style="color:var(--brand-2);">terms of credit</a>.
+          </label>
+
+          <div class="form-actions">
+            <button class="btn btn-ghost" type="button">Save as draft</button>
+            <button class="btn btn-primary" style="width:auto;" type="submit">Submit application →</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Your EMI estimate</h3>
+        <p class="sub">Recalculated as you move the sliders.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:10px 0 18px;">
+          <div class="kpi mint" style="min-height:auto; padding:16px;">
+            <div class="head"><div class="ico-pill">₹</div></div>
+            <div class="k" id="emiOut" style="font-size:26px;">₹4,130</div>
+            <div class="l">Monthly EMI</div>
+          </div>
+          <div class="kpi peach" style="min-height:auto; padding:16px;">
+            <div class="head"><div class="ico-pill">∑</div></div>
+            <div class="k" id="intOut" style="font-size:26px;">₹4,560</div>
+            <div class="l">Total interest</div>
+          </div>
+        </div>
+        <div class="row" style="justify-content:space-between; padding:14px 16px; background:var(--bg-2); border-radius:12px; border:1px solid var(--line);">
+          <div class="muted" style="font-size:11px; letter-spacing:.18em; text-transform:uppercase;">Total repayable</div>
+          <div style="font-family:var(--font-display); font-size:22px; font-weight:700;" id="totOut">₹49,560</div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h3 style="font-size:16px; margin-bottom:14px;">Application progress</h3>
+        <div class="steps">
+          <div class="step done"><div class="n">✓</div><div><div class="t">Verified identity</div><div class="m">Aadhaar matched via KYC</div></div></div>
+          <div class="step now"><div class="n">2</div><div><div class="t">Loan details</div><div class="m">You are here</div></div></div>
+          <div class="step"><div class="n">3</div><div><div class="t">Officer review</div><div class="m">Typically 2–3 business days</div></div></div>
+          <div class="step"><div class="n">4</div><div><div class="t">Disbursement</div><div class="m">Direct bank transfer (NEFT / UPI)</div></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

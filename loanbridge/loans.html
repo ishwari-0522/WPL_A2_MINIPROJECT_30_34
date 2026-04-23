@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>All Loans · LoanBridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
+    <div class="nav-label">Overview</div>
+    <nav class="nav">
+      <a href="admin_dashboard.html"><span class="ico">◐</span><span>Home</span></a>
+      <a href="analysis.html"><span class="ico">▤</span><span>Analysis</span></a>
+    </nav>
+    <div class="nav-label">Operations</div>
+    <nav class="nav">
+      <a class="is-active" href="loans.html"><span class="ico">❒</span><span>All loans</span><span class="badge">142</span></a>
+      <a href="applications.html"><span class="ico">＋</span><span>Applications</span><span class="badge">8</span></a>
+      <a href="repayments.html"><span class="ico">₹</span><span>Repayments</span></a>
+      <a href="overdue.html"><span class="ico">!</span><span>Overdue</span><span class="badge warn">12</span></a>
+      <a href="add_loan.html"><span class="ico">✚</span><span>Add loan</span></a>
+    </nav>
+    <div class="nav-label">Account</div>
+    <nav class="nav">
+      <a href="#"><span class="ico">⚙</span><span>Settings</span></a>
+      <a href="logout.php"><span class="ico">↩</span><span>Log out</span></a>
+    </nav>
+    <div class="me"><div class="avatar amber">RK</div><div class="who">Ravi Kumar<span class="role">Admin · Pune</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search by borrower, loan ID, city..."/></div>
+      <div class="row" style="gap:10px;"><button class="icon-btn">◔<span class="dot-red"></span></button><button class="icon-btn">⚙</button></div>
+    </div>
+
+    <header class="page-head">
+      <div>
+        <div class="crumbs"><span class="dot"></span> MANAGEMENT · MARCH 2026</div>
+        <h1>ALL <em>LOANS.</em></h1>
+        <p class="sub">142 total · 118 active · 12 overdue · 12 closed</p>
+      </div>
+      <a class="btn btn-primary btn-pill" style="width:auto;" href="add_loan.html">＋ New loan</a>
+    </header>
+
+    <section class="kpis">
+      <div class="kpi blue"><div class="head"><div class="ico-pill">₹</div><span class="delta-tag">↑ 12.4%</span></div><div class="k">₹84.2L</div><div class="l">Portfolio</div></div>
+      <div class="kpi mint"><div class="head"><div class="ico-pill">●</div><span class="delta-tag">+8 mo</span></div><div class="k">118</div><div class="l">Active</div></div>
+      <div class="kpi rose"><div class="head"><div class="ico-pill">!</div><span class="delta-tag bad">↓ 3</span></div><div class="k">12</div><div class="l">Overdue</div></div>
+      <div class="kpi lilac"><div class="head"><div class="ico-pill">✓</div><span class="delta-tag info">Q1</span></div><div class="k">12</div><div class="l">Closed</div></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div><h3>Loan directory</h3><div class="sub">Click any row to open the loan profile.</div></div>
+        <div data-chips data-target="allLoans" class="chips">
+          <button data-filter="all" class="is-active">All (142)</button>
+          <button data-filter="active">Active (118)</button>
+          <button data-filter="overdue">Overdue (12)</button>
+          <button data-filter="closed">Closed (12)</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="allLoans" class="t">
+          <thead><tr><th>Borrower</th><th>Loan ID</th><th>Principal</th><th>EMI</th><th>Progress</th><th>Status</th><th>Next due</th><th></th></tr></thead>
+          <tbody>
+            <tr data-status="active"><td><div class="who"><div class="avatar">PP</div><div><div class="name">Priya Patil</div><div class="meta">PUNE, MH</div></div></div></td>
+              <td class="mono">#LN-2024-0892</td><td class="num">₹45,000</td><td class="num">₹3,750</td>
+              <td><div class="progress-cell"><div class="bar"><i style="width:78%"></i></div><small>78%</small></div></td>
+              <td><span class="badge ok">Active</span></td><td class="mono">Apr 12, 2026</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">View →</a></td></tr>
+            <tr data-status="overdue"><td><div class="who"><div class="avatar peach">RM</div><div><div class="name">Raju Mehta</div><div class="meta">NASHIK, MH</div></div></div></td>
+              <td class="mono">#LN-2024-0847</td><td class="num">₹80,000</td><td class="num">₹6,667</td>
+              <td><div class="progress-cell"><div class="bar bad"><i style="width:45%"></i></div><small>45%</small></div></td>
+              <td><span class="badge bad">Overdue</span></td><td class="mono" style="color:var(--bad);">Mar 05, 2026</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">View →</a></td></tr>
+            <tr data-status="active"><td><div class="who"><div class="avatar mint">SK</div><div><div class="name">Sunita Kadam</div><div class="meta">MUMBAI, MH</div></div></div></td>
+              <td class="mono">#LN-2025-0011</td><td class="num">₹1,20,000</td><td class="num">₹10,000</td>
+              <td><div class="progress-cell"><div class="bar warn"><i style="width:12%"></i></div><small>12%</small></div></td>
+              <td><span class="badge info">Pending</span></td><td class="mono">Jun 01, 2026</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">View →</a></td></tr>
+            <tr data-status="active"><td><div class="who"><div class="avatar lime">KS</div><div><div class="name">Karan Shah</div><div class="meta">PUNE, MH</div></div></div></td>
+              <td class="mono">#LN-2025-0009</td><td class="num">₹1,50,000</td><td class="num">₹12,500</td>
+              <td><div class="progress-cell"><div class="bar"><i style="width:22%"></i></div><small>22%</small></div></td>
+              <td><span class="badge ok">Active</span></td><td class="mono">Apr 09, 2026</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">View →</a></td></tr>
+            <tr data-status="active"><td><div class="who"><div class="avatar lilac">AS</div><div><div class="name">Asha Sharma</div><div class="meta">AURANGABAD, MH</div></div></div></td>
+              <td class="mono">#LN-2024-0721</td><td class="num">₹35,000</td><td class="num">₹2,920</td>
+              <td><div class="progress-cell"><div class="bar"><i style="width:88%"></i></div><small>88%</small></div></td>
+              <td><span class="badge ok">Active</span></td><td class="mono">Apr 18, 2026</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">View →</a></td></tr>
+            <tr data-status="overdue"><td><div class="who"><div class="avatar amber">VJ</div><div><div class="name">Vikram Jadhav</div><div class="meta">NASHIK, MH</div></div></div></td>
+              <td class="mono">#LN-2024-0612</td><td class="num">₹60,000</td><td class="num">₹5,200</td>
+              <td><div class="progress-cell"><div class="bar bad"><i style="width:38%"></i></div><small>38%</small></div></td>
+              <td><span class="badge bad">Overdue</span></td><td class="mono" style="color:var(--bad);">Feb 28, 2026</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">View →</a></td></tr>
+            <tr data-status="closed"><td><div class="who"><div class="avatar mint">DI</div><div><div class="name">Deepa Iyer</div><div class="meta">PUNE, MH</div></div></div></td>
+              <td class="mono">#LN-2023-0451</td><td class="num">₹30,000</td><td class="muted">—</td>
+              <td><div class="progress-cell"><div class="bar"><i style="width:100%"></i></div><small>100%</small></div></td>
+              <td><span class="badge ghost">Closed</span></td><td class="muted">—</td>
+              <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Statement</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
