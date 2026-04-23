@@ -175,13 +175,13 @@ input, select, textarea { font: inherit; color: inherit; }
   font-weight: 700;
   font-size: clamp(56px, 8vw, 120px);
   line-height: .92;
-  letter-spacing: -.04em;
   margin: 24px 0 24px;
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 40%, #6c8fd9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
+  letter-spacing: 4px;
 }
 .hero h1 em {
   font-style: normal;
