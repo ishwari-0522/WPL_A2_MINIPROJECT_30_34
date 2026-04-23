@@ -53,10 +53,10 @@
     </header>
 
     <section class="kpis">
-      <div class="kpi mint"><div class="head"><div class="ico-pill">₹</div><span class="delta-tag">↑ 9%</span></div><div class="k">₹2.4L</div><div class="l">Collected this week</div></div>
-      <div class="kpi blue"><div class="head"><div class="ico-pill">✓</div><span class="delta-tag info">81 on time</span></div><div class="k">86</div><div class="l">EMIs received</div></div>
-      <div class="kpi peach"><div class="head"><div class="ico-pill">⏱</div><span class="delta-tag warn">14 borrowers</span></div><div class="k">₹48k</div><div class="l">Due tomorrow</div></div>
-      <div class="kpi rose"><div class="head"><div class="ico-pill">!</div><span class="delta-tag bad">Action</span></div><div class="k">5</div><div class="l">Failed debits</div></div>
+      <div class="kpi mint"><div class="k">₹2.4L</div><div class="l">Collected this week</div></div>
+      <div class="kpi blue"><div class="k">86</div><div class="l">EMIs received</div></div>
+      <div class="kpi peach"><div class="k">₹48k</div><div class="l">Due tomorrow</div></div>
+      <div class="kpi rose"><div class="k">5</div><div class="l">Failed debits</div></div>
     </section>
 
     <section class="card">
@@ -72,28 +72,68 @@
 
       <div class="table-wrap">
         <table id="repTable" class="t">
-          <thead><tr><th>Date</th><th>Borrower</th><th>Loan ID</th><th>Amount</th><th>Method</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr data-status="paid"><td class="mono">Mar 24, 09:12</td>
-              <td><div class="who"><div class="avatar">PP</div><div><div class="name">Priya Patil</div><div class="meta">PUNE</div></div></div></td>
-              <td class="mono">#LN-2024-0892</td><td class="num" style="color:var(--ok);">+₹3,750</td><td class="muted">Auto-debit · HDFC</td><td><span class="badge ok">Paid</span></td></tr>
-            <tr data-status="paid"><td class="mono">Mar 24, 08:40</td>
-              <td><div class="who"><div class="avatar mint">AS</div><div><div class="name">Asha Sharma</div><div class="meta">AURANGABAD</div></div></div></td>
-              <td class="mono">#LN-2024-0721</td><td class="num" style="color:var(--ok);">+₹2,920</td><td class="muted">UPI</td><td><span class="badge ok">Paid</span></td></tr>
-            <tr data-status="failed"><td class="mono">Mar 24, 06:00</td>
-              <td><div class="who"><div class="avatar peach">RM</div><div><div class="name">Raju Mehta</div><div class="meta">NASHIK</div></div></div></td>
-              <td class="mono">#LN-2024-0847</td><td class="num" style="color:var(--bad);">−₹6,667</td><td class="muted">Auto-debit · ICICI</td><td><span class="badge bad">Failed</span></td></tr>
-            <tr data-status="paid"><td class="mono">Mar 23, 17:22</td>
-              <td><div class="who"><div class="avatar lime">KS</div><div><div class="name">Karan Shah</div><div class="meta">PUNE</div></div></div></td>
-              <td class="mono">#LN-2025-0009</td><td class="num" style="color:var(--ok);">+₹12,500</td><td class="muted">Net banking</td><td><span class="badge ok">Paid</span></td></tr>
-            <tr data-status="upcoming"><td class="mono">Mar 25, 10:00</td>
-              <td><div class="who"><div class="avatar lilac">SK</div><div><div class="name">Sunita Kadam</div><div class="meta">MUMBAI</div></div></div></td>
-              <td class="mono">#LN-2025-0011</td><td class="num">₹10,000</td><td class="muted">Auto-debit · SBI</td><td><span class="badge info">Upcoming</span></td></tr>
-            <tr data-status="paid"><td class="mono">Mar 23, 11:14</td>
-              <td><div class="who"><div class="avatar amber">VJ</div><div><div class="name">Vikram Jadhav</div><div class="meta">NASHIK</div></div></div></td>
-              <td class="mono">#LN-2024-0612</td><td class="num" style="color:var(--ok);">+₹5,200</td><td class="muted">Cash · branch</td><td><span class="badge ok">Paid</span></td></tr>
-          </tbody>
-        </table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Loan ID</th>
+      <th>Amount</th>
+      <th>Method</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 24, 09:12</td>
+      <td class="mono">#LN-2024-0892</td>
+      <td class="num" style="color:var(--ok);">+₹3,750</td>
+      <td class="muted">Auto-debit · HDFC</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 24, 08:40</td>
+      <td class="mono">#LN-2024-0721</td>
+      <td class="num" style="color:var(--ok);">+₹2,920</td>
+      <td class="muted">UPI</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+    <tr data-status="failed">
+      <td class="mono">Mar 24, 06:00</td>
+      <td class="mono">#LN-2024-0847</td>
+      <td class="num" style="color:var(--bad);">−₹6,667</td>
+      <td class="muted">Auto-debit · ICICI</td>
+      <td><span class="badge bad">Failed</span></td>
+    </tr>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 23, 17:22</td>
+      <td class="mono">#LN-2025-0009</td>
+      <td class="num" style="color:var(--ok);">+₹12,500</td>
+      <td class="muted">Net banking</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+    <tr data-status="upcoming">
+      <td class="mono">Mar 25, 10:00</td>
+      <td class="mono">#LN-2025-0011</td>
+      <td class="num">₹10,000</td>
+      <td class="muted">Auto-debit · SBI</td>
+      <td><span class="badge info">Upcoming</span></td>
+    </tr>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 23, 11:14</td>
+      <td class="mono">#LN-2024-0612</td>
+      <td class="num" style="color:var(--ok);">+₹5,200</td>
+      <td class="muted">Cash · branch</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+  </tbody>
+</table>
       </div>
     </section>
   </main>

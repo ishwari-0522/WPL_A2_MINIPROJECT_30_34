@@ -909,3 +909,51 @@ input[type="range"]::-webkit-slider-thumb {
   background: linear-gradient(135deg, rgba(196,181,253,.08), rgba(96,165,255,.05));
   border: 1px solid var(--line-2);
 }
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero h1 {
+  text-align: center;
+  width: 100%;
+}
+html, body {
+  overflow-x: hidden;
+}
+.app {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+}
+.main {
+  flex: 1;
+  padding: 20px 24px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.card,
+.kpis,
+.table-wrap,
+section {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  min-width: 800px; /* keeps structure but allows scroll */
+  width: 100%;
+}
+.topbar {
+  width: 100%;
+  max-width: 100%;
+}
