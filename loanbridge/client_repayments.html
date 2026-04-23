@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Repayments · LoanBridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
+    <div class="nav-label">Overview</div>
+    <nav class="nav">
+      <a href="client_dashboard.html"><span class="ico">◐</span><span>Home</span></a>
+      <a href="apply_loan.html"><span class="ico">＋</span><span>Apply for loan</span></a>
+    </nav>
+    <div class="nav-label">My account</div>
+    <nav class="nav">
+      <a href="my_loans.html"><span class="ico">❒</span><span>My loans</span><span class="badge">2</span></a>
+      <a class="is-active" href="client_repayments.html"><span class="ico">₹</span><span>Repayments</span></a>
+      <a href="#"><span class="ico">◫</span><span>Documents</span></a>
+      <a href="#"><span class="ico">◉</span><span>Profile</span></a>
+    </nav>
+    <div class="nav-label">Support</div>
+    <nav class="nav">
+      <a href="#"><span class="ico">?</span><span>Help center</span></a>
+      <a href="logout.php"><span class="ico">↩</span><span>Log out</span></a>
+    </nav>
+    <div class="me"><div class="avatar lilac">PP</div><div class="who">Priya Patil<span class="role">Borrower · Pune</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search payments..."/></div>
+      <div class="row" style="gap:10px;"><button class="icon-btn">◔<span class="dot-red"></span></button><button class="icon-btn">⚙</button></div>
+    </div>
+
+    <header class="page-head">
+      <div>
+        <div class="crumbs"><span class="dot"></span> SCHEDULE · MARCH 2026</div>
+        <h1>YOUR <em>REPAYMENTS.</em></h1>
+        <p class="sub">Pay your EMI, see what's due, review history.</p>
+      </div>
+      <a class="btn btn-primary btn-pill" style="width:auto;" href="#pay">Pay next EMI — ₹3,750 →</a>
+    </header>
+
+    <section class="kpis">
+      <div class="kpi peach"><div class="head"><div class="ico-pill">⏱</div><span class="delta-tag warn">Apr 12</span></div><div class="k">₹3,750</div><div class="l">Next EMI</div></div>
+      <div class="kpi mint"><div class="head"><div class="ico-pill">✓</div><span class="delta-tag">100%</span></div><div class="k">14</div><div class="l">EMIs on time</div></div>
+      <div class="kpi blue"><div class="head"><div class="ico-pill">₹</div><span class="delta-tag info">All loans</span></div><div class="k">₹52.5k</div><div class="l">Paid to date</div></div>
+      <div class="kpi rose"><div class="head"><div class="ico-pill">↓</div><span class="delta-tag bad">10 left</span></div><div class="k">₹65k</div><div class="l">Remaining</div></div>
+    </section>
+
+    <section class="grid-2" style="margin-bottom:16px;">
+      <div class="card" id="pay">
+        <div class="card-head">
+          <h3>Payment history</h3>
+          <div data-chips data-target="payTable" class="chips">
+            <button data-filter="all" class="is-active">All</button>
+            <button data-filter="paid">Paid</button>
+            <button data-filter="upcoming">Upcoming</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="payTable" class="t">
+            <thead><tr><th>Due</th><th>Loan</th><th>Amount</th><th>Method</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr data-status="upcoming"><td class="mono">Apr 12, 2026</td><td>Agricultural</td><td class="num">₹3,750</td><td class="muted">Auto-debit · HDFC</td><td><span class="badge info">Upcoming</span></td></tr>
+              <tr data-status="upcoming"><td class="mono">Apr 05, 2026</td><td>Shop expansion</td><td class="num">₹1,820</td><td class="muted">UPI</td><td><span class="badge info">Upcoming</span></td></tr>
+              <tr data-status="paid"><td class="mono">Mar 12, 2026</td><td>Agricultural</td><td class="num" style="color:var(--ok);">+₹3,750</td><td class="muted">Auto-debit</td><td><span class="badge ok">Paid</span></td></tr>
+              <tr data-status="paid"><td class="mono">Mar 05, 2026</td><td>Shop expansion</td><td class="num" style="color:var(--ok);">+₹1,820</td><td class="muted">UPI</td><td><span class="badge ok">Paid</span></td></tr>
+              <tr data-status="paid"><td class="mono">Feb 12, 2026</td><td>Agricultural</td><td class="num" style="color:var(--ok);">+₹3,750</td><td class="muted">Auto-debit</td><td><span class="badge ok">Paid</span></td></tr>
+              <tr data-status="paid"><td class="mono">Feb 05, 2026</td><td>Shop expansion</td><td class="num" style="color:var(--ok);">+₹1,820</td><td class="muted">Cash · branch</td><td><span class="badge ok">Paid</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Pay now</h3>
+        <p class="sub">Next EMI for agricultural loan #LN-2024-0892.</p>
+        <form action="repayments.php" method="post">
+          <input type="hidden" name="loan_id" value="LN-2024-0892"/>
+          <div class="field"><label>Amount due</label><input class="input" name="amount" value="3750" readonly/></div>
+          <div class="field">
+            <label>Pay via</label>
+            <select class="select" name="method">
+              <option>UPI · GPay / PhonePe / Paytm</option>
+              <option>Net banking</option>
+              <option>Debit card</option>
+              <option>Cash at branch</option>
+            </select>
+          </div>
+          <div class="field"><label>Notes (optional)</label><textarea class="textarea" name="notes" rows="2" placeholder="e.g. paying 2 EMIs in advance"></textarea></div>
+          <button class="btn btn-primary" type="submit">Pay ₹3,750 securely →</button>
+        </form>
+        <div class="hr"></div>
+        <div class="row" style="justify-content:space-between;">
+          <span class="muted" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase;">Secure · SSL</span>
+          <span class="tag">100% on-time</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

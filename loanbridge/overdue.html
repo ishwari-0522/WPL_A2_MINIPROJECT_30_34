@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Overdue · LoanBridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
+    <div class="nav-label">Overview</div>
+    <nav class="nav">
+      <a href="admin_dashboard.html"><span class="ico">◐</span><span>Home</span></a>
+      <a href="analysis.html"><span class="ico">▤</span><span>Analysis</span></a>
+    </nav>
+    <div class="nav-label">Operations</div>
+    <nav class="nav">
+      <a href="loans.html"><span class="ico">❒</span><span>All loans</span><span class="badge">142</span></a>
+      <a href="applications.html"><span class="ico">＋</span><span>Applications</span><span class="badge">8</span></a>
+      <a href="repayments.html"><span class="ico">₹</span><span>Repayments</span></a>
+      <a class="is-active" href="overdue.html"><span class="ico">!</span><span>Overdue</span><span class="badge warn">12</span></a>
+      <a href="add_loan.html"><span class="ico">✚</span><span>Add loan</span></a>
+    </nav>
+    <div class="nav-label">Account</div>
+    <nav class="nav">
+      <a href="#"><span class="ico">⚙</span><span>Settings</span></a>
+      <a href="logout.php"><span class="ico">↩</span><span>Log out</span></a>
+    </nav>
+    <div class="me"><div class="avatar amber">RK</div><div class="who">Ravi Kumar<span class="role">Admin · Pune</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search overdue accounts..."/></div>
+      <div class="row" style="gap:10px;"><button class="icon-btn">◔<span class="dot-red"></span></button><button class="icon-btn">⚙</button></div>
+    </div>
+
+    <header class="page-head">
+      <div>
+        <div class="crumbs"><span class="dot"></span> RISK · ACTION REQUIRED</div>
+        <h1>OVERDUE <em>ACCOUNTS.</em></h1>
+        <p class="sub">12 borrowers behind on EMI · ₹84,200 outstanding · field follow-up needed.</p>
+      </div>
+      <a class="btn btn-primary btn-pill" style="width:auto;" href="#">Trigger reminder SMS</a>
+    </header>
+
+    <section class="kpis">
+      <div class="kpi rose"><div class="k">12</div><div class="l">Overdue accounts</div></div>
+      <div class="kpi peach"><div class="k">₹84.2k</div><div class="l">Total overdue</div></div>
+      <div class="kpi amber"><div class="k">23</div><div class="l">Avg. days late</div></div>
+      <div class="kpi mint"><div class="k">7</div><div class="l">Recovered this week</div></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div><h3>Overdue ledger</h3><div class="sub">Sorted by days late, descending.</div></div>
+        <div data-chips data-target="overdueTable" class="chips">
+          <button data-filter="all" class="is-active">All</button>
+          <button data-filter="critical">60+ days</button>
+          <button data-filter="warn">30–60</button>
+          <button data-filter="early">&lt;30</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+       <table id="overdueTable" class="t">
+  <thead>
+    <tr>
+      <th>Loan ID</th>
+      <th>Amount due</th>
+      <th>Days late</th>
+      <th>Last contact</th>
+      <th>Officer</th>
+      <th>Severity</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr data-status="critical">
+      <td class="mono">#LN-2024-0847</td>
+      <td class="num" style="color:var(--bad);">₹13,334</td>
+      <td class="num">62 d</td>
+      <td class="muted">Mar 12 · Call</td>
+      <td>S. Pawar</td>
+      <td><span class="badge bad">Critical</span></td>
+      <td><a class="btn btn-primary btn-sm btn-pill" href="#">Visit →</a></td>
+    </tr>
+
+    <tr data-status="critical">
+      <td class="mono">#LN-2024-0612</td>
+      <td class="num" style="color:var(--bad);">₹10,400</td>
+      <td class="num">61 d</td>
+      <td class="muted">Mar 15 · SMS</td>
+      <td>S. Pawar</td>
+      <td><span class="badge bad">Critical</span></td>
+      <td><a class="btn btn-primary btn-sm btn-pill" href="#">Visit →</a></td>
+    </tr>
+
+    <tr data-status="warn">
+      <td class="mono">#LN-2024-0590</td>
+      <td class="num" style="color:var(--warn);">₹6,500</td>
+      <td class="num">42 d</td>
+      <td class="muted">Mar 20 · Visit</td>
+      <td>R. Kumar</td>
+      <td><span class="badge warn">High</span></td>
+      <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Follow-up</a></td>
+    </tr>
+
+    <tr data-status="warn">
+      <td class="mono">#LN-2024-0533</td>
+      <td class="num" style="color:var(--warn);">₹4,800</td>
+      <td class="num">34 d</td>
+      <td class="muted">Mar 18 · Call</td>
+      <td>A. Iyer</td>
+      <td><span class="badge warn">High</span></td>
+      <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Follow-up</a></td>
+    </tr>
+
+    <tr data-status="early">
+      <td class="mono">#LN-2025-0102</td>
+      <td class="num">₹3,200</td>
+      <td class="num">11 d</td>
+      <td class="muted">Mar 22 · SMS</td>
+      <td>R. Kumar</td>
+      <td><span class="badge info">Watch</span></td>
+      <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Notify</a></td>
+    </tr>
+
+    <tr data-status="early">
+      <td class="mono">#LN-2025-0084</td>
+      <td class="num">₹2,750</td>
+      <td class="num">6 d</td>
+      <td class="muted">Mar 23 · SMS</td>
+      <td>P. Joshi</td>
+      <td><span class="badge info">Watch</span></td>
+      <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Notify</a></td>
+    </tr>
+
+  </tbody>
+</table>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

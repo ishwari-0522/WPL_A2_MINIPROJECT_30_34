@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Repayments · LoanBridge Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
+    <div class="nav-label">Overview</div>
+    <nav class="nav">
+      <a href="admin_dashboard.html"><span class="ico">◐</span><span>Home</span></a>
+      <a href="analysis.html"><span class="ico">▤</span><span>Analysis</span></a>
+    </nav>
+    <div class="nav-label">Operations</div>
+    <nav class="nav">
+      <a href="loans.html"><span class="ico">❒</span><span>All loans</span><span class="badge">142</span></a>
+      <a href="applications.html"><span class="ico">＋</span><span>Applications</span><span class="badge">8</span></a>
+      <a class="is-active" href="repayments.html"><span class="ico">₹</span><span>Repayments</span></a>
+      <a href="overdue.html"><span class="ico">!</span><span>Overdue</span><span class="badge warn">12</span></a>
+      <a href="add_loan.html"><span class="ico">✚</span><span>Add loan</span></a>
+    </nav>
+    <div class="nav-label">Account</div>
+    <nav class="nav">
+      <a href="#"><span class="ico">⚙</span><span>Settings</span></a>
+      <a href="logout.php"><span class="ico">↩</span><span>Log out</span></a>
+    </nav>
+    <div class="me"><div class="avatar amber">RK</div><div class="who">Ravi Kumar<span class="role">Admin · Pune</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search by borrower or txn ID..."/></div>
+      <div class="row" style="gap:10px;"><button class="icon-btn">◔<span class="dot-red"></span></button><button class="icon-btn">⚙</button></div>
+    </div>
+
+    <header class="page-head">
+      <div>
+        <div class="crumbs"><span class="dot"></span> COLLECTIONS · THIS WEEK</div>
+        <h1>REPAYMENTS <em>RECEIVED.</em></h1>
+        <p class="sub">All EMIs collected across the portfolio in real time.</p>
+      </div>
+      <div class="row">
+        <a class="btn btn-ghost btn-pill" href="#">Export CSV</a>
+        <a class="btn btn-primary btn-pill" style="width:auto;" href="#">Record manual EMI</a>
+      </div>
+    </header>
+
+    <section class="kpis">
+      <div class="kpi mint"><div class="k">₹2.4L</div><div class="l">Collected this week</div></div>
+      <div class="kpi blue"><div class="k">86</div><div class="l">EMIs received</div></div>
+      <div class="kpi peach"><div class="k">₹48k</div><div class="l">Due tomorrow</div></div>
+      <div class="kpi rose"><div class="k">5</div><div class="l">Failed debits</div></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div><h3>Repayment ledger</h3><div class="sub">Most recent first.</div></div>
+        <div data-chips data-target="repTable" class="chips">
+          <button data-filter="all" class="is-active">All</button>
+          <button data-filter="paid">Paid</button>
+          <button data-filter="failed">Failed</button>
+          <button data-filter="upcoming">Upcoming</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="repTable" class="t">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Loan ID</th>
+      <th>Amount</th>
+      <th>Method</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 24, 09:12</td>
+      <td class="mono">#LN-2024-0892</td>
+      <td class="num" style="color:var(--ok);">+₹3,750</td>
+      <td class="muted">Auto-debit · HDFC</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 24, 08:40</td>
+      <td class="mono">#LN-2024-0721</td>
+      <td class="num" style="color:var(--ok);">+₹2,920</td>
+      <td class="muted">UPI</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+    <tr data-status="failed">
+      <td class="mono">Mar 24, 06:00</td>
+      <td class="mono">#LN-2024-0847</td>
+      <td class="num" style="color:var(--bad);">−₹6,667</td>
+      <td class="muted">Auto-debit · ICICI</td>
+      <td><span class="badge bad">Failed</span></td>
+    </tr>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 23, 17:22</td>
+      <td class="mono">#LN-2025-0009</td>
+      <td class="num" style="color:var(--ok);">+₹12,500</td>
+      <td class="muted">Net banking</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+    <tr data-status="upcoming">
+      <td class="mono">Mar 25, 10:00</td>
+      <td class="mono">#LN-2025-0011</td>
+      <td class="num">₹10,000</td>
+      <td class="muted">Auto-debit · SBI</td>
+      <td><span class="badge info">Upcoming</span></td>
+    </tr>
+
+    <tr data-status="paid">
+      <td class="mono">Mar 23, 11:14</td>
+      <td class="mono">#LN-2024-0612</td>
+      <td class="num" style="color:var(--ok);">+₹5,200</td>
+      <td class="muted">Cash · branch</td>
+      <td><span class="badge ok">Paid</span></td>
+    </tr>
+
+  </tbody>
+</table>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Admin Dashboard · LoanBridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
+
+    <div class="nav-label">Overview</div>
+    <nav class="nav">
+      <a class="is-active" href="admin_dashboard.html"><span class="ico">◐</span><span>Home</span></a>
+      <a href="analysis.html"><span class="ico">▤</span><span>Analysis</span></a>
+    </nav>
+
+    <div class="nav-label">Operations</div>
+    <nav class="nav">
+      <a href="loans.html"><span class="ico">❒</span><span>All loans</span><span class="badge">142</span></a>
+      <a href="applications.html"><span class="ico">＋</span><span>Applications</span><span class="badge">8</span></a>
+      <a href="repayments.html"><span class="ico">₹</span><span>Repayments</span></a>
+      <a href="overdue.html"><span class="ico">!</span><span>Overdue</span><span class="badge warn">12</span></a>
+      <a href="add_loan.html"><span class="ico">✚</span><span>Add loan</span></a>
+    </nav>
+
+    <div class="nav-label">Account</div>
+    <nav class="nav">
+      <a href="#"><span class="ico">⚙</span><span>Settings</span></a>
+      <a href="logout.php"><span class="ico">↩</span><span>Log out</span></a>
+    </nav>
+
+    <div class="me"><div class="avatar amber">RK</div><div class="who">Ravi Kumar<span class="role">Admin · Pune</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search borrowers, loans, applications..."/><span class="kbd">⌘K</span></div>
+      <div class="row" style="gap:10px;"><button class="icon-btn">◔<span class="dot-red"></span></button><button class="icon-btn">⚙</button></div>
+    </div>
+
+    <header class="page-head">
+      <div>
+        <div class="crumbs"><span class="dot"></span> MANAGEMENT · MARCH 2026</div>
+        <h1>GOOD MORNING, <em>RAVI.</em></h1>
+        <p class="sub">8 applications need review · 12 loans overdue · ₹2.4L due this week.</p>
+      </div>
+      <div class="row">
+        <a class="btn btn-ghost btn-pill" href="analysis.html">View analysis →</a>
+        <a class="btn btn-primary btn-pill" style="width:auto;" href="add_loan.html">＋ New loan</a>
+      </div>
+    </header>
+
+    <section class="kpis">
+      <div class="kpi blue">
+        <div class="head"><div class="ico-pill">₹</div><span class="delta-tag">↑ 12.4% QoQ</span></div>
+        <div class="k">₹84.2L</div><div class="l">Total portfolio</div>
+      </div>
+      <div class="kpi mint">
+        <div class="head"><div class="ico-pill">●</div><span class="delta-tag">+8 mo</span></div>
+        <div class="k">118</div><div class="l">Active loans</div>
+      </div>
+      <div class="kpi rose">
+        <div class="head"><div class="ico-pill">!</div><span class="delta-tag bad">↓ 3</span></div>
+        <div class="k">12</div><div class="l">Overdue</div>
+      </div>
+      <div class="kpi lilac">
+        <div class="head"><div class="ico-pill">✓</div><span class="delta-tag info">Q1</span></div>
+        <div class="k">12</div><div class="l">Closed this Q</div>
+      </div>
+    </section>
+
+    <section class="grid-2" style="margin-bottom:16px;">
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Recent applications</h3><div class="sub">Need your attention</div></div>
+          <a class="btn btn-ghost btn-sm btn-pill" href="applications.html">All →</a>
+        </div>
+        <div class="table-wrap">
+          <table class="t">
+            <thead><tr><th>Applicant</th><th>Amount</th><th>Purpose</th><th>Score</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="who"><div class="avatar peach">AN</div><div><div class="name">Anita Nair</div><div class="meta">NEW · MAR 17</div></div></div></td>
+                <td class="num">₹50,000</td><td>Small shop</td>
+                <td><span class="badge warn">612</span></td>
+                <td><span class="badge info">Pending</span></td>
+                <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Review →</a></td>
+              </tr>
+              <tr>
+                <td><div class="who"><div class="avatar mint">KS</div><div><div class="name">Karan Shah</div><div class="meta">REPEAT · MAR 15</div></div></div></td>
+                <td class="num">₹1,50,000</td><td>Agriculture</td>
+                <td><span class="badge ok">748</span></td>
+                <td><span class="badge ok">Approved</span></td>
+                <td><a class="btn btn-primary btn-sm btn-pill" style="width:auto;" href="#">Disburse</a></td>
+              </tr>
+              <tr>
+                <td><div class="who"><div class="avatar lilac">MP</div><div><div class="name">Meena Patkar</div><div class="meta">NEW · MAR 14</div></div></div></td>
+                <td class="num">₹30,000</td><td>Dairy farm</td>
+                <td><span class="badge bad">541</span></td>
+                <td><span class="badge bad">Rejected</span></td>
+                <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Details</a></td>
+              </tr>
+              <tr>
+                <td><div class="who"><div class="avatar">RT</div><div><div class="name">Rahul Tendulkar</div><div class="meta">REPEAT · MAR 12</div></div></div></td>
+                <td class="num">₹75,000</td><td>Education</td>
+                <td><span class="badge ok">722</span></td>
+                <td><span class="badge info">Pending</span></td>
+                <td><a class="btn btn-ghost btn-sm btn-pill" href="#">Review →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Live activity</h3><span class="tag live">Live</span></div>
+        <div class="feed">
+          <div class="feed-item"><div class="feed-ico ok">↑</div>
+            <div class="feed-text"><div class="t">Loan disbursed — Sunita Kadam</div><div class="m">TODAY · 11:24 AM</div></div>
+            <div class="feed-amt pos">+₹1,20,000</div></div>
+          <div class="feed-item"><div class="feed-ico ok">✓</div>
+            <div class="feed-text"><div class="t">EMI received — Priya Patil</div><div class="m">TODAY · 09:12 AM</div></div>
+            <div class="feed-amt pos">+₹3,750</div></div>
+          <div class="feed-item"><div class="feed-ico bad">!</div>
+            <div class="feed-text"><div class="t">Overdue alert — Raju Mehta</div><div class="m">MAR 18 · 08:00 AM</div></div>
+            <div class="feed-amt neg">−₹4,800</div></div>
+          <div class="feed-item"><div class="feed-ico warn">⚑</div>
+            <div class="feed-text"><div class="t">New application — Anita Nair</div><div class="m">MAR 17 · 03:50 PM</div></div>
+            <div class="feed-amt muted">Review</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-12">
+      <div class="card">
+        <h3>Collection efficiency</h3>
+        <p class="sub">Target 95% · this month</p>
+        <div class="donut-wrap">
+          <div class="donut" style="--p:97;"></div>
+          <div class="center"><div><div class="v">97.3%</div><div class="lbl">Above target</div></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>Disbursements vs collections</h3>
+          <div class="chips"><button class="is-active">6 months</button><button>YTD</button></div>
+        </div>
+        <div class="bars">
+          <div class="col"><div class="pair"><div class="b" style="height:60%"></div><div class="b alt" style="height:75%"></div></div><small>Oct</small></div>
+          <div class="col"><div class="pair"><div class="b" style="height:72%"></div><div class="b alt" style="height:62%"></div></div><small>Nov</small></div>
+          <div class="col"><div class="pair"><div class="b" style="height:55%"></div><div class="b alt" style="height:80%"></div></div><small>Dec</small></div>
+          <div class="col"><div class="pair"><div class="b" style="height:88%"></div><div class="b alt" style="height:70%"></div></div><small>Jan</small></div>
+          <div class="col"><div class="pair"><div class="b" style="height:64%"></div><div class="b alt" style="height:85%"></div></div><small>Feb</small></div>
+          <div class="col"><div class="pair"><div class="b" style="height:96%"></div><div class="b alt" style="height:78%"></div></div><small>Mar</small></div>
+        </div>
+        <div class="legend">
+          <span><i class="b1"></i> Collections</span>
+          <span><i class="b2"></i> Disbursements</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

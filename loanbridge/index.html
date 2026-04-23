@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LoanBridge — Microfinance Management Network</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"/>
+
+<style>
+/* ===== ADDITIONAL STYLES ===== */
+.portal-section { margin-top: 60px; }
+.portal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.portal-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+.portal-card:hover { transform: translateY(-6px); border-color: #4da3ff; }
+.portal-card h3 { color: #4da3ff; margin-bottom: 12px; }
+.portal-card p { color: #aaa; margin-bottom: 20px; }
+
+.transactions { margin-top: 60px; }
+.section-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.section-head h2 { color:white; }
+.filters button { background:none; border:none; color:#888; margin-left:10px; cursor:pointer; }
+.filters .active { color:#4da3ff; }
+
+.table-card { background: rgba(255,255,255,0.02); border-radius:16px; padding:20px; }
+table { width:100%; border-collapse:collapse; color:#ddd; }
+th { text-align:left; font-size:12px; color:#666; padding-bottom:10px; }
+td { padding:14px 0; }
+
+.user { display:flex; gap:10px; align-items:center; }
+.avatar { background:#2d6cdf; padding:10px; border-radius:10px; }
+
+.progress { width:120px; height:6px; background:#222; border-radius:10px; }
+.progress span { display:block; height:100%; background:#4caf50; border-radius:10px; }
+.progress.red span { background:#ff4d6d; }
+.progress.blue span { background:#4da3ff; }
+
+.badge { padding:6px 12px; border-radius:20px; font-size:12px; }
+.badge.active { background:#1f7a4f; }
+.badge.overdue { background:#7a1f2d; }
+.badge.pending { background:#1f3a7a; }
+.overdue-text { color:#ff4d6d; }
+
+.view-btn { background:none; border:1px solid #333; color:#aaa; padding:6px 12px; border-radius:10px; }
+
+.stats-bar { margin-top:40px; display:grid; grid-template-columns:repeat(4,1fr); background:rgba(255,255,255,0.02); border-radius:16px; padding:20px; text-align:center; }
+.stat h2 { color:#4da3ff; }
+.stat.highlight h2 { color:#00e676; }
+.stat.danger h2 { color:#ff4d6d; }
+</style>
+
+</head>
+<body>
+
+<div class="shell-center">
+
+<header class="brandbar">
+  <a href="index.html" class="brand"><span class="dot"></span> LOAN<em>BRIDGE</em></a>
+  <nav class="topnav">
+    <a class="is-active" href="#">HOME</a>
+    <a href="loans.html">ALL LOANS</a>
+    <a href="applications.html">APPLICATIONS</a>
+    <a href="repayments.html">REPAYMENTS</a>
+    <a href="overdue.html">OVERDUE</a>
+    <a href="analysis.html">ANALYSIS</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">Active Microfinance Management Network</span>
+  <h1>Loan<em>Bridge</em></h1>
+  <p>A unified platform connecting borrowers with microfinance institutions.</p>
+</section>
+
+<!-- PORTALS -->
+<section class="portal-section">
+  <div class="portal-grid">
+
+    <div class="portal-card">
+      <h3>CLIENT PORTAL</h3>
+      <p>Apply for loans and manage repayments.</p>
+      <a href="#auth" class="btn btn-primary">APPLY FOR LOAN</a>
+    </div>
+
+    <div class="portal-card">
+      <h3>LOAN MANAGER</h3>
+      <p>Review applications and manage loans.</p>
+      <a href="#auth" class="btn btn-primary">GET STARTED</a>
+    </div>
+
+    <div class="portal-card">
+      <h3>ADMIN PORTAL</h3>
+      <p>Oversee operations and analytics.</p>
+      <a href="#auth" class="btn btn-primary">VIEW ANALYTICS</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRANSACTIONS -->
+<section class="transactions">
+  <div class="section-head">
+    <h2>RECENT TRANSACTIONS</h2>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <tbody>
+        <tr>
+          <td>Priya Patil</td>
+          <td>₹45,000</td>
+          <td><div class="progress"><span style="width:78%"></span></div></td>
+          <td><span class="badge active">ACTIVE</span></td>
+          <td>Apr 12, 2026</td>
+        </tr>
+
+        <tr>
+          <td>Raju Mehta</td>
+          <td>₹80,000</td>
+          <td><div class="progress red"><span style="width:45%"></span></div></td>
+          <td><span class="badge overdue">OVERDUE</span></td>
+          <td class="overdue-text">Mar 05, 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="stat"><h2>1,284</h2><p>ACTIVE LOANS</p></div>
+  <div class="stat highlight"><h2>₹84.2L</h2><p>PORTFOLIO VALUE</p></div>
+  <div class="stat"><h2>97.3%</h2><p>RECOVERY RATE</p></div>
+  <div class="stat danger"><h2>12</h2><p>OVERDUE TODAY</p></div>
+</section>
+
+</div>
+
+</body>
+</html>
