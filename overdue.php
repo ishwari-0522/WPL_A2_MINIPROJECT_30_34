@@ -61,22 +61,22 @@ if(!isset($_SESSION['user']) || $_SESSION['role'] != 'admin'){
 
 </aside>
 
-<!-- MAIN -->
+
 <main class="main">
 
-<!-- TOPBAR -->
+
 <div class="topbar">
   <div class="search">
     <input placeholder="Search overdue loans..."/>
   </div>
 </div>
 
-<!-- HEADER -->
+
 <header class="page-head">
   <h1>OVERDUE <em>LOANS.</em></h1>
 </header>
 
-<!-- TABLE -->
+
 <section class="card">
 
 <table class="t">

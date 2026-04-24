@@ -57,7 +57,6 @@ if($_SESSION['role'] != 'admin'){
 
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <header class="page-head">

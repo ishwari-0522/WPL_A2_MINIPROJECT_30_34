@@ -7,12 +7,10 @@ if($_SESSION['role'] != 'client'){
 
 $user = $_SESSION['user'];
 
-/* ===== HANDLE PAYMENT ===== */
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   $loan_id = $_POST['loan_id'];
   $amount = $_POST['amount'];
 
-  // get numeric loan id
   $loan_id = str_replace("LN-","",$loan_id);
 
   pg_query($conn,"
@@ -23,10 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   header("Location: client_repayment.php");
 }
 
-/* ===== FETCH USER LOANS ===== */
 $loans = pg_query($conn,"SELECT * FROM loans WHERE borrower_name='$user'");
 
-/* ===== KPI CALCULATIONS ===== */
 $nextLoan = pg_fetch_assoc(pg_query($conn,"
 SELECT * FROM loans 
 WHERE borrower_name='$user' AND status='Active'
@@ -58,7 +54,6 @@ SELECT
   )
 "),0,0);
 
-/* ===== PAYMENT HISTORY ===== */
 $history = pg_query($conn,"
 SELECT repayments.*, loans.borrower_name 
 FROM repayments
@@ -82,7 +77,6 @@ ORDER BY payment_date DESC
 <body>
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
 
@@ -100,7 +94,6 @@ ORDER BY payment_date DESC
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <header class="page-head">
@@ -108,7 +101,6 @@ ORDER BY payment_date DESC
   <p class="sub">Next EMI ₹<?php echo $nextEMI; ?> due on <?php echo $nextDate; ?></p>
 </header>
 
-<!-- KPIs -->
 <section class="kpis">
 
 <div class="kpi peach">
@@ -128,7 +120,6 @@ ORDER BY payment_date DESC
 
 </section>
 
-<!-- HISTORY -->
 <section class="card">
 
 <h3>Payment history</h3>
@@ -157,7 +148,6 @@ ORDER BY payment_date DESC
 
 </section>
 
-<!-- PAY -->
 <section class="card">
 
 <h3>Pay now</h3>

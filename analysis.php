@@ -58,25 +58,20 @@ if($_SESSION['role'] != 'admin'){
 </div>
 
 <?php
-/* ===== CORRECT KPI LOGIC ===== */
 
-// total disbursement
 $totalDisbursed = pg_fetch_result(pg_query($conn,"
 SELECT COALESCE(SUM(loan_amount),0) FROM loans
 "),0,0);
 
 
-// total collected
 $totalCollected = pg_fetch_result(pg_query($conn,"
 SELECT COALESCE(SUM(amount),0) FROM repayments
 "),0,0);
 
-// expected EMI (simple version: 1 EMI per loan)
 $totalExpected = pg_fetch_result(pg_query($conn,"
 SELECT COALESCE(SUM(emi),0) FROM loans WHERE status='Active'
 "),0,0);
 
-// efficiency
 $efficiency = $totalExpected > 0 
   ? round(($totalCollected / $totalExpected) * 100, 1)
   : 0;
@@ -89,12 +84,10 @@ JOIN loans l ON l.id = r.loan_id
 
 if($totalInterest < 0) $totalInterest = 0;
 
-// total loans
 $totalLoans = pg_fetch_result(pg_query($conn,"
 SELECT COUNT(*) FROM loans
 "),0,0);
 
-// NPA (overdue loans amount)
 $npa = pg_fetch_result(pg_query($conn,"
 SELECT COALESCE(SUM(loan_amount),0) 
 FROM loans 
@@ -106,7 +99,6 @@ WHERE due_date < CURRENT_DATE AND status!='Closed'
   <h1>PORTFOLIO <em>ANALYSIS.</em></h1>
 </header>
 
-<!-- KPI -->
 <section class="kpis">
 
 <div class="kpi blue">
@@ -131,7 +123,6 @@ WHERE due_date < CURRENT_DATE AND status!='Closed'
 
 </section>
 
-<!-- BREAKDOWN -->
 <section class="grid-2">
 
 <div class="card">
@@ -158,7 +149,6 @@ WHERE due_date < CURRENT_DATE AND status!='Closed'
 
 </div>
 
-<!-- LIVE ACTIVITY -->
 <div class="card">
   <h3>Recent activity</h3>
 

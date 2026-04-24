@@ -8,7 +8,6 @@ if($_SESSION['role'] != 'client'){
 
 $user = $_SESSION['user'];
 
-/* ===== HANDLE FORM SUBMIT ===== */
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   $purpose   = $_POST['purpose'];
@@ -45,7 +44,6 @@ array($user,$amount,$purpose)
 <body>
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand-mini">
     <div class="logo">L</div>
@@ -66,7 +64,6 @@ array($user,$amount,$purpose)
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <header class="page-head">
@@ -140,7 +137,6 @@ array($user,$amount,$purpose)
 </main>
 </div>
 
-<!-- Aadhaar Formatter -->
 <script>
 document.querySelectorAll('input.aadhaar').forEach(inp => {
   inp.addEventListener('input', e => {

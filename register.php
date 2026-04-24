@@ -17,13 +17,11 @@
 
   <div class="auth-card">
 
-    <!-- HEADER -->
     <div class="auth-header">
       <h2>CREATE <em>ACCOUNT.</em></h2>
       <p>Join LoanBridge to manage your loans seamlessly.</p>
     </div>
 
-    <!-- FORM -->
     <form action="register_backend.php" method="POST" class="auth-form">
 
       <div class="field">
@@ -47,7 +45,6 @@
 
     </form>
 
-    <!-- FOOTER -->
     <div class="auth-footer">
       Already have an account?
       <a href="login.php?type=client">Login</a>

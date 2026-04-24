@@ -76,7 +76,6 @@ if(isset($_SESSION['role'])){
   </div>
 </section>
 
-<!-- STATS -->
 <section class="stats-bar">
 
 <?php

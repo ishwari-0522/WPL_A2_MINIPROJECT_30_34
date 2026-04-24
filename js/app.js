@@ -1,6 +1,4 @@
-// LoanBridge — tiny UI helpers (HTML/CSS-first, no framework)
 
-// Auth tabs
 document.querySelectorAll('[data-tabs]').forEach(group => {
   const btns = group.querySelectorAll('button[data-tab]');
   btns.forEach(b => b.addEventListener('click', () => {
@@ -13,7 +11,6 @@ document.querySelectorAll('[data-tabs]').forEach(group => {
   }));
 });
 
-// Filter chips (table filters — purely visual)
 document.querySelectorAll('[data-chips]').forEach(group => {
   const btns = group.querySelectorAll('button');
   btns.forEach(b => b.addEventListener('click', () => {
@@ -29,7 +26,6 @@ document.querySelectorAll('[data-chips]').forEach(group => {
   }));
 });
 
-// Aadhaar formatter (xxxx xxxx xxxx)
 document.querySelectorAll('input.aadhaar').forEach(inp => {
   inp.addEventListener('input', e => {
     let v = e.target.value.replace(/\D/g, '').slice(0, 12);
@@ -37,7 +33,6 @@ document.querySelectorAll('input.aadhaar').forEach(inp => {
   });
 });
 
-// Loan calc (apply page)
 const amt = document.getElementById('amt');
 const ten = document.getElementById('ten');
 const rate = document.getElementById('rate');
@@ -63,5 +58,4 @@ function recalc() {
 [amt, ten, rate].forEach(el => el && el.addEventListener('input', recalc));
 recalc();
 
-// Year
 document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());

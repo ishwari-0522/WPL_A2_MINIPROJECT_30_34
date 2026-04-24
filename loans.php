@@ -20,7 +20,6 @@ if($_SESSION['role'] != 'admin'){
 <body>
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand-mini"><div class="logo">L</div><div class="name">LOAN<span>BRIDGE</span></div></div>
 
@@ -50,7 +49,6 @@ if($_SESSION['role'] != 'admin'){
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <div class="topbar">

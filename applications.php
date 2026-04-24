@@ -1,7 +1,6 @@
 <?php include 'db.php'; session_start(); ?>
 
 <?php
-/* ===== SESSION CHECK ===== */
 if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
   header("Location: login.php?type=admin");
   exit;
@@ -22,7 +21,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 <body>
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand-mini">
     <div class="logo">L</div>
@@ -58,7 +56,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <div class="topbar">

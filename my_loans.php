@@ -7,10 +7,8 @@ if($_SESSION['role'] != 'client'){
 
 $user = $_SESSION['user'];
 
-// FETCH LOANS
 $res = pg_query($conn,"SELECT * FROM loans WHERE borrower_name='$user'");
 
-// KPI CALCULATIONS
 $totalLoans = pg_fetch_result(pg_query($conn,"SELECT COUNT(*) FROM loans WHERE borrower_name='$user'"),0,0);
 
 $activeLoans = pg_fetch_result(pg_query($conn,"SELECT COUNT(*) FROM loans WHERE borrower_name='$user' AND status='Active'"),0,0);
@@ -34,7 +32,6 @@ $totalEMI = pg_fetch_result(pg_query($conn,"SELECT COALESCE(SUM(emi),0) FROM loa
 <body>
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand-mini">
     <div class="logo">L</div>
@@ -55,14 +52,12 @@ $totalEMI = pg_fetch_result(pg_query($conn,"SELECT COALESCE(SUM(emi),0) FROM loa
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <header class="page-head">
   <h1>MY <em>LOANS.</em></h1>
 </header>
 
-<!-- KPI -->
 <section class="kpis">
   <div class="kpi blue">
     <div class="k"><?php echo $totalLoans; ?></div>
@@ -85,7 +80,6 @@ $totalEMI = pg_fetch_result(pg_query($conn,"SELECT COALESCE(SUM(emi),0) FROM loa
   </div>
 </section>
 
-<!-- TABLE -->
 <section class="card">
 
 <table class="t">

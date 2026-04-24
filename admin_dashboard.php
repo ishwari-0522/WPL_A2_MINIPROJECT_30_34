@@ -21,7 +21,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 <body>
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand-mini">
     <div class="logo">L</div>
@@ -57,7 +56,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
 <div class="topbar">
@@ -101,7 +99,6 @@ $closed = pg_fetch_result(pg_query($conn,"SELECT COUNT(*) FROM loans WHERE statu
 
 <section class="grid-2">
 
-<!-- RECENT APPLICATIONS -->
 <div class="card">
   <div class="card-head">
     <h3>Recent applications</h3>
@@ -167,7 +164,6 @@ Approve
   </table>
 </div>
 
-<!-- LIVE ACTIVITY -->
 <div class="card">
   <h3>Live activity</h3>
 

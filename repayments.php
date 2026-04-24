@@ -7,7 +7,6 @@ if(!isset($_SESSION['user']) || $_SESSION['role'] != 'admin'){
   exit;
 }
 
-/* FETCH ALL REPAYMENTS */
 $result = pg_query($conn,"
 SELECT repayments.*, loans.borrower_name 
 FROM repayments
@@ -31,7 +30,6 @@ ORDER BY payment_date DESC
 
 <div class="app">
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
 
   <div class="brand-mini">
@@ -69,22 +67,18 @@ ORDER BY payment_date DESC
 
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
-<!-- TOPBAR -->
 <div class="topbar">
   <div class="search">
     <input placeholder="Search repayments..."/>
   </div>
 </div>
 
-<!-- HEADER -->
 <header class="page-head">
   <h1>ALL <em>REPAYMENTS.</em></h1>
 </header>
 
-<!-- TABLE -->
 <section class="card">
 
 <table class="t">
