@@ -42,7 +42,7 @@ if($app['status'] == 'Approved'){
 }
 
 $amount = $app['amount'];
-$rate = 18;
+$rate = 7;
 $tenure = 12;
 
 $r = $rate/(12*100);
