@@ -56,8 +56,9 @@ if(isset($_SESSION['role'])){
     <p>Apply for loans and manage repayments.</p>
   </div>
 
-  <a class="btn btn-primary">APPLY FOR LOAN</a>
-
+<a href="login.php?type=client" class="btn btn-primary">
+  APPLY FOR LOAN
+</a>
 </div>
 
     <div class="portal-card">
